@@ -10,6 +10,7 @@ String incomingByte;
 
 void maincom(String custommsg, bool launchperm, int pyro, String mode) {
 	incomingByte = Serial.readString();  // reads new data
+
 	if (incomingByte.equals(custommsg) == true) {
 		
 		Serial.print("Custom Message Recieved");
@@ -18,15 +19,16 @@ void maincom(String custommsg, bool launchperm, int pyro, String mode) {
 	    
     } 
 	if (incomingByte.equals("launch") == true) {
+		pinMode(pyro, OUTPUT);
 		if (launchperm == true) {
 			if (mode.equals("LOW") == true) {
 			   digitalWrite(pyro, LOW);
-			   delay(1000);
+			   delay(3000);
 			   digitalWrite(pyro, HIGH);
 			}
 			if (mode.equals("HIGH") == true) {
 			   digitalWrite(pyro, HIGH);
-			   delay(1000);
+			   delay(3000);
 			   digitalWrite(pyro, LOW);
 	        }
 	       

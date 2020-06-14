@@ -35,6 +35,7 @@ void maincom(String custommsg, bool launchperm, int pyro, String mode) {
 		}
 	}
 	if (incomingByte.equals("pyrotest") == true) {
+		pinMode(pyro, OUTPUT);
 		if (launchperm == true) {
 			if (mode.equals("LOW") == true) {
 				digitalWrite(pyro, LOW);
